@@ -1,0 +1,22 @@
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+
+    .xpcd {
+      margin: 60px auto;
+    }
+
+    .container {
+        text-align: center;
+
+        h1 {
+            font-size: 5rem;
+        }
+
+        h3 {
+            font-size: 3rem;
+        }
+    }
+}
