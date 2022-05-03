@@ -13,8 +13,9 @@ import '@/styles/_imports.scss'
 
 // ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 // Bootstrap https://getbootstrap.com/
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/js/dist/popover'
 import 'bootstrap/dist/js/bootstrap.min.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 createApp(App)
     .use(app)

@@ -1,9 +1,29 @@
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { defineComponent, computed } from 'vue'
+import { getAuth, signOut } from 'firebase/auth'
+import store from '@/store'
+import router from '@/router'
 
 defineComponent({
   name: 'AppTopbar'
-})
+ })
+
+ const userData = computed(() => {
+   return store.state.user
+ })
+
+function signout () {
+  const auth = getAuth()
+  signOut(auth).then(() => {
+    console.log('dc')
+  })
+  .catch((error) => {
+    console.error('Error append', error)
+  })
+  store.commit('removeUser')
+  router.push({ name: 'login' })
+  console.log('prout')
+}
 </script>
 
 <template>
@@ -31,14 +51,14 @@ defineComponent({
 
         <div class="flex-shrink-0 dropdown">
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <img :src="userData.photoURL" :alt="userData.displayName" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" style="">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Nouvel article</a></li>
+            <li><router-link to="/home/profile" tag="a" class="dropdown-item">Profile</router-link></li>
+            <li><a class="dropdown-item" href="#">Parametres</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+            <li><a class="dropdown-item" @click="signout">Se deconnecter</a></li>
           </ul>
         </div>
       </div>
